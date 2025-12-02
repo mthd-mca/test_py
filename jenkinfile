@@ -1,0 +1,31 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: "main", url: "https://github.com/mthd-mca/test_py.git"
+            }
+        }
+
+        stage('Build') {
+            steps {
+                echo "Git pipeline started...."
+            }
+        }
+
+        stage('Test') {
+            steps {
+                echo "Comiling sorucer code...."
+            }
+        }
+	stage('Run') {
+            steps {
+                echo "Running unit test cases"
+		sh 'python test.py'
+		echo "from git pipeline completed"
+            }
+        }
+
+    }
+}
