@@ -22,7 +22,7 @@ pipeline {
 	stage('Run') {
             steps {
                 echo "Running unit test cases"
-		sh 'python test.py'
+		sh 'python3 test.py'
 		echo "from git pipeline completed"
             }
         }
